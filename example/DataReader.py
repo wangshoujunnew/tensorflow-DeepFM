@@ -3,7 +3,9 @@ A data parser for Porto Seguro's Safe Driver Prediction competition's dataset.
 URL: https://www.kaggle.com/c/porto-seguro-safe-driver-prediction
 """
 import pandas as pd
-
+# 主要是对连续型变量做正态分布等数据预处理操作、类别型变量的One-hot编码操作、统计One-hot编码后的特征数量、field_size的数量（注：原始特征数量）。
+# feature_value。对应的特征值，如果是离散特征的话，就是1，如果不是离散特征的话，就保留原来的特征值。
+# feature_index。用来记录One-hot编码后特征的序号，主要用于通过embedding_lookup选择我们的embedding。
 
 class FeatureDictionary(object):
     def __init__(self, trainfile=None, testfile=None,
